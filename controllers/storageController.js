@@ -1,5 +1,16 @@
 const StorageFacility = require("../models/storageFacility");
+//
 
+
+
+//ye jis collevtion me store kr raha h vo ham kaam m nahi le rahe]
+// to ye add pe api call nhi krni h
+
+
+
+
+
+//
 // Add storage facility
 exports.addStorageFacility = async (req, res) => {
     const { name, location,capacity, slotAvailability, storageType } = req.body;

@@ -1,9 +1,21 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 const storageRoutes = require("./routes/storageRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
+const facilityRoutes = require("./routes/facilityRoutes");
+
+// const paymentRoutes = require("./routes/paymentRoutes");
+
+
+app.use(cors({
+    origin: "*", // change krna h ye
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    credentials: true, // Allow credential
+}));
+
 
 
 app.use(express.json());
@@ -20,6 +32,16 @@ app.use("/api/storage", storageRoutes);
 
 
 app.use("/api/booking", bookingRoutes);
+
+
+app.use("/api/facilities", facilityRoutes);
+
+
+
+
+// app.use("/api/payment", paymentRoutes);
+
+
 
 // Connect to MongoDB
 mongoose
